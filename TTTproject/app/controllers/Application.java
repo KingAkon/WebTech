@@ -7,19 +7,17 @@ import views.html.*;
 
 public class Application extends Controller {
 
-    public static Result index() {
-        return ok(index.render("Your new application is ready."));
+   
+    public static Result grundseite(){
+        return ok(grundseite.render());
     }
-	public static Result main(){
-		return ok(main.render());
 		
-	}	
 	public static Result instructions() {
 		return ok(instructions.render());
 	
 	}
 	public static Result options() {
-		return ok(instructions.options());
+		return ok(options.render());
 	
 	}
 	public static Result register() {
@@ -34,6 +32,9 @@ public class Application extends Controller {
 		return ok(about.render());
 	
 	}
+	/*public static Result kontakt() {
+		return ok(kontakt.render());
+		}*/
 	
 	
 	
