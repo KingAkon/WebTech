@@ -1,0 +1,9 @@
+
+.container {
+width:960px;
+}
+
+.blog-masthead {
+backround-color:yellow;
+box-shadow: insert 0 -2px 5px black;
+}
