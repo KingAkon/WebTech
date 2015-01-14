@@ -1,0 +1,23 @@
+@(name: String)(loginForm: Form[model.Benutzer])
+@import helper._
+
+@main("login")(name){
+<form class="form-horizontal">
+<fieldset>
+<h1>Login</h1>
+
+								@helper.form(action= routes.Application.loginSubmit(), '_id -> "loginForm"){
+						   		<div class="form-group">
+						   		@helper.inputText(loginForm("nn"), '_label->"Nutzername", '_id->"un", '_class->"form-control")
+						       	</div>
+						       	<div class="form-group">
+						       	@helper.inputText(loginForm("pw"), '_label->"Passwort", '_id->"pw", '_class->"form-control")
+						       	</div>
+						       <button type="submit">Login</button>
+							}
+</div>
+</div>
+</fieldset>
+</form>
+
+}
