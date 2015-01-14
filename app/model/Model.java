@@ -1,4 +1,4 @@
-﻿package model;
+package model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -11,7 +11,9 @@ import java.util.ArrayList;
 public class Model {
 
 	private static Model instance = null;
-	private static Connection con = null;
+	private static Connection con = DB.getConnection();
+	
+	private Benutzer b = new Benutzer();
 	
 
 	
@@ -30,6 +32,20 @@ public class Model {
 	}
 	
 
+	public void registrieren (Benutzer benutzer){
+		if(benutzer.getNn() != null && benutzer.getNn() != "Gast"){	
+			try{
+				Statement s = con.createStatement();
+				String insertString = "insert into nutzer(nn, pw) values ('" + benutzer.getNn() + "', '" + securePw(benutzer.getPw()) + "')";
+				s.executeUpdate(insertString);
+				this.setNutzer(benutzer);
+				System.out.println("Model signIn: " + this.getNutzername() );
+			}catch(SQLException e){
+				e.printStackTrace();
+				System.out.println("Fehler beim Erstellen des Nutzers");
+			}
+		}
+	}
 	
 	public void convertData() {
 		Statement s = null;

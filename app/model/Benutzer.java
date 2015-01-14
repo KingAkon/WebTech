@@ -3,19 +3,19 @@ package model;
 public class Benutzer {
 
 	private String benutzername;
-	private int benutzerid;
+	private String password;
 	
 	
 	
 	
 	//Konstruktor
-	public Benutzer(String benutzername, int benutzerid) {
+	public Benutzer(String benutzername, String password) {
 		super();
 		this.benutzername = benutzername;
 		
-		this.benutzerid = benutzerid;
+		this.password = password;
 	}
-	//Getter Setter bei ID kein Set -> primary key
+
 	public String getBenutzername() {
 		return benutzername;
 	}
@@ -23,9 +23,12 @@ public class Benutzer {
 		this.benutzername = benutzername;
 	}
 	
+	public void setPassword(String password){
+		this.password = password;
+	}
 	
-	public int getBenutzerid() {
-		return benutzerid;
+	public int getPassword() {
+		return password;
 	}
 	
 	
